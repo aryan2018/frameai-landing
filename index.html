@@ -14,6 +14,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FrameAI — Your AI Photography Coach</title>
+<meta name="description" content="FrameAI helps you pose better, frame better photos, and get perfect camera settings using AI-powered photography coaching.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -350,6 +351,64 @@ footer a:hover{color:var(--paper)}
   </div>
 </section>
 
+
+<!-- AI POSE SUGGESTION FEATURE -->
+<section style="padding:6rem 2rem;background:#fff7ea;border-top:1px solid #f0d79a;border-bottom:1px solid #f0d79a">
+  <div class="container">
+
+    <div class="section-label">
+      Upcoming AI Feature
+    </div>
+
+    <div class="section-title">
+      Upload your pose.<br>
+      <em>Get a better one back.</em>
+    </div>
+
+    <p style="margin-top:1.5rem;font-size:16px;color:var(--muted);line-height:1.8;max-width:760px">
+      Soon you'll be able to upload a photo of yourself posing and FrameAI will generate a visually improved version with better body angle, posture, framing and hand placement — so you instantly understand how to make your shot look more professional.
+    </p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem">
+
+      <div style="background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden">
+        <div style="height:320px;background:linear-gradient(135deg,#dcdcdc,#f5f5f5);display:flex;align-items:center;justify-content:center;font-size:22px;color:#777">
+          📷 Original Pose
+        </div>
+
+        <div style="padding:1.5rem">
+          <h3 style="font-size:18px;margin-bottom:8px">Before</h3>
+
+          <p style="font-size:14px;color:var(--muted);line-height:1.7">
+            Upload any portrait, mirror selfie, travel shot or casual pose.
+          </p>
+        </div>
+      </div>
+
+      <div style="background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden">
+        <div style="height:320px;background:linear-gradient(135deg,#f0c060,#ffe8b0);display:flex;align-items:center;justify-content:center;font-size:22px;color:#6d4a00;text-align:center;padding:1rem">
+          ✨ AI Suggested Pose
+        </div>
+
+        <div style="padding:1.5rem">
+          <h3 style="font-size:18px;margin-bottom:8px">AI Suggestion</h3>
+
+          <p style="font-size:14px;color:var(--muted);line-height:1.7">
+            See a better pose suggestion with improved posture, framing, expression and body positioning.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:1.5rem;text-align:center;font-size:13px;color:var(--muted)">
+      Sample previews showing how the AI pose coaching system will work in the full app.
+    </div>
+
+  </div>
+</section>
+
+
 <!-- WAITLIST -->
 <section class="waitlist-section" id="waitlist">
   <div class="container">
@@ -473,42 +532,7 @@ document.getElementById('dGenBtn').addEventListener('click', async ()=>{
   checkDemo();
 });
 
-// WAITLIST TAG TOGGLES
-document.querySelectorAll('.wtag').forEach(btn=>{
-  btn.addEventListener('click',()=>btn.classList.toggle('active'));
-});
-
-// WAITLIST SIGNUP — tracks count in localStorage
-function joinWaitlist(){
-  const email=document.getElementById('wEmail').value.trim();
-  const err=document.getElementById('wEmailErr');
-  if(!email||!email.includes('@')){
-    err.style.display='block';
-    document.getElementById('wEmail').style.borderColor='#c0392b';
-    return;
-  }
-  err.style.display='none';
-
-  // Track successful signup
-  gtag('event', 'waitlist_form_submitted', {
-    signup_type: 'email_waitlist'
-  });
-  
-  // Increment local count
-  let count=parseInt(localStorage.getItem('wl_count')||'847');
-  count++;
-  localStorage.setItem('wl_count',count);
-
-  document.getElementById('wFinalCount').textContent=count;
-  document.getElementById('waitlistForm').style.display='none';
-  document.getElementById('waitlistSuccess').style.display='block';
-}
-
-// On load, restore count display
-(function(){
-  const saved=localStorage.getItem('wl_count');
-  if(saved) document.getElementById('wCount').textContent=saved;
-})();
+;
 </script>
 </body>
 </html>
